@@ -1,0 +1,218 @@
+<script src="https://usersnapdemo.com/exitintent_website/jquery.exitintent.min.js"></script>
+
+<script>
+window.onUsersnapCXLoad = function(api) {
+    api.init({
+                    
+  "button": {
+    "label": "Feedback",
+    "styles": {
+      "container": {
+        "borderRadius": "2px 2px 0 0"
+      }
+    },
+    "position": "rightCenter",
+    "@template": "button"
+  },
+  "locale": "en",
+  "widget": {
+    "mode": "normal",
+    "modes": {
+      "drawing": {
+        "header": {
+          "color": null
+        }
+      },
+      "@template": {
+        "id": "modes",
+        "params": {
+          "screenshotMetricId": "screenshot"
+        }
+      }
+    },
+    "pages": [
+      {
+        "id": "welcome-select-page",
+        "footer": {
+          "buttons": [
+            {
+              "id": "send",
+              "type": "submit",
+              "label": "Send feedback"
+            }
+          ]
+        },
+        "fieldsets": [
+          {
+            "id": "header-fieldset",
+            "fields": [
+              {
+                "styles": {
+                  "container": {
+                    "background": "#3a21ce"
+                  }
+                },
+                "poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
+                "@resource": "header.svg"
+              }
+            ],
+            "isFullSize": true
+          },
+          {
+            "fields": [
+              {
+                "allowHTML": true,
+                "component": "TextDisplay",
+                "id": "question-textField",
+                "text": {
+                  "en": "<div style='font-size: 24px;'>Something missing? <br />What are you looking for?</div>"
+                },
+                "textStyle": {},
+                "titleStyle": {}
+              }
+            ],
+            "id": "branding-footer"
+          },
+          {
+            "id": "comment-fieldset",
+            "fields": [
+              {
+                "rows": 5,
+                "label": null,
+                "@metric": "comment",
+                "required": true,
+                "multiline": true
+              }
+            ]
+          }
+        ],
+        "onSubmit": {
+            "action": "submit",
+            "options": {
+                "onSuccess": [
+                  {
+                    "action": "updateActivePage",
+                    "options": {
+                      "pageId": "thankyou-page"
+                    }
+                  }
+                ]
+              }
+          }
+      },
+      {
+        "@template": {
+          "id": "thankYouPage",
+          "params": {
+            "id": "thankyou-page",
+            "resource": "thankyou_new_logo.png",
+            "title": {
+              "en": "Thank you!",
+              "de": "Vielen Dank!"
+            }
+          }
+        },
+        "header": {
+          "color": "#ffffff",
+          "@template": "header",
+          "isTransparent": true
+        }
+      }
+    ],
+    "tools": {
+      "@template": "tools"
+    },
+    "header": {
+      "color": "#ffffff",
+      "@template": "header",
+      "isTransparent": true
+    },
+    "styles": {
+      "container": {
+        "borderRadius": "2rem 0 0 0"
+      }
+    },
+    "position": "centered"
+  },
+  "references": {
+    "metrics": {
+      "geo": {
+        "metricType": "GEO"
+      },
+      "state": {
+        "metricType": "ENUM"
+      },
+      "client": {
+        "metricType": "CLIENT"
+      },
+      "rating": {
+        "metricType": "NPS"
+      },
+      "comment": {
+        "metricType": "TEXT"
+      },
+      "visitor": {
+        "metricType": "VISITOR",
+        "displayType": "HIDDEN"
+      },
+      "screenshot": {
+        "metricType": "SCREENSHOT"
+      }
+    },
+    "resources": {
+      "header.svg": {
+        "src": "https://usersnapdemo.com/demo/widget_bg.png",
+        "resourceType": "IMAGE"
+      },
+      "thankyou_new_logo.png": {
+        "src": "https://resources.usersnap.com/company/06893e40-7805-4018-aa74-27397b6d674d/widget_config/thankyou_new_logo_e9112f77-a329-4f62-8b1c-d3708062ce49.png?etag=42de39103f7dc2c0063860efe03b99b7",
+        "resourceType": "IMAGE"
+      }
+    }
+  },
+  "primaryColor": "#3a21ce",
+  "secondaryColor": "#310c52"
+}  , { merge: true });
+            
+               
+                jQuery.exitIntent('enable');
+                      $(document).bind('exitintent', function() {
+                          // An intent to exit has happened
+                            if (getCookie('widget_fired') != 'yes') {
+                                window.UsersnapCX.open();
+                                setCookie('widget_fired','yes',30);
+                            }
+                      });
+                function setCookie(name, value, days) {
+                    var date, expires;
+                    if (days) {
+                        date = new Date();
+                        date.setTime(date.getTime()+(days*24*60*60*1000));
+                        expires = "; expires="+date.toGMTString();
+                    } else {
+                        expires = "";
+                    }
+                    document.cookie = name+"="+value+expires+"; path=/";
+                }
+                
+                function getCookie(name) {
+                    var value = "; " + document.cookie;
+                    var parts = value.split("; " + name + "=");
+                    if (parts.length == 2) return parts.pop().split(";").shift();
+                }
+                // CHANGE - how to add the email from your app
+                api.on('open', function(event) {
+                    //event.api.setValue('visitor', 'john@doe.me');
+                    //event.api.setValue('comment', 'Quit playing games with my heart!');
+                });
+            
+                window.UsersnapCX = api; // expose api
+            };
+            var script = document.createElement('script');
+            script.async = 1;
+            
+            // CHANGE - to your API key for Usersnap CX in the URL - IMPORTANT
+            script.src = '//widget.usersnap.com/load/5ad7a7ea-a2e1-4cb5-abbc-e8ed5a267cd9?onload=onUsersnapCXLoad&isdev=true';
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+</script>

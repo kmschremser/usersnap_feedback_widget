@@ -1,15 +1,13 @@
-//window.addEventListener('scroll', function() {
-    //setTimeout(function() {
-        window.onUsersnapCXLoad = function(api) {
-            api.init({
-                // <script type="text/javascript">
+<script type="text/javascript">
+            window.onUsersnapCXLoad = function(api) {
+                api.init({
                     "@template": {
                         "id": "basicConfig",
                         "params": {
                             // CHANGE label of button
-                            "buttonLabel": "Feedback & Chat",
+                            "buttonLabel": "Feedback",
                             // CHANGE position of button
-                            "buttonPosition": "bottomRight", //bottomRight, rightBottom, rightCenter
+                            "buttonPosition": "rightCenter", //rightBottom, rightCenter
                             // CHANGE colors
                             "headerColor": "#fff",
                             "primaryColor": "#3a21ce",
@@ -18,53 +16,21 @@
                             "preview": false,
                             "ratingId": "rating",
                             "screenshotId": "screenshot",
-                            
                         }
                     },
                     "references": {
                         "resources": {
+                            
                             "logo_header.png": {
+                                "resourceType": "IMAGE",
                                 // CHANGE - background image of header
-                                "src": "https://usersnap.com/blog/wp-content/uploads/2019/11/usersnap_header3.jpg",
-                                "resourceType": "IMAGE",
+                                "src": "https://usersnap.com/blog/wp-content/uploads/2019/07/trans2.png"
                             },
-                            "logo_header2.png": {
-                                //CHANGE - just copy the background image of header
-                                "src": "https://usersnap.com/blog/wp-content/uploads/2019/11/usersnap_header4.jpg",
-                                "resourceType": "IMAGE",
-                            },
-                            "hi-five.gif": {
-                                "src": "http://static.skaip.org/img/emoticons/180x180/f6fcff/highfive.gif",
-                                "resourceType": "IMAGE",
-                            },
-                            "fb.svg": {
-                                "src": "https://resources.usersnap.com/company/6b66d72d-7fa7-4d1c-b824-6a41e1ab6e17/widget_config/fb_23ecc2ee-e8a9-4e3e-b466-19fd44102c2d.svg?etag=cb7cdaf0229670aeabcd5ba76c5cb182",
+                            //CHANGE - just copy the background image of header
+                            "header.svg": {
+                                "src": "https://usersnap.com/blog/wp-content/uploads/2019/07/trans2.png",
                                 "resourceType": "IMAGE"
-                              },
-                              "chat.svg": {
-                                "src": "https://resources.usersnap.com/company/6b66d72d-7fa7-4d1c-b824-6a41e1ab6e17/widget_config/chat_b3fe037b-bae3-4836-9e04-019a7652b37d.svg?etag=fe60649be579492dccd5af3e32e8db20",
-                                "resourceType": "IMAGE"
-                              },
-                              "rate_v2.png": {
-                                "src": "https://resources.usersnap.com/company/6b66d72d-7fa7-4d1c-b824-6a41e1ab6e17/widget_config/rate_v2_b70487c8-7c15-4d34-b1e6-246a8f445c60.png?etag=850a6e435c5ed7611915a1eb45a2bc7e",
-                                "resourceType": "IMAGE"
-                              },
-                              "feedback_v3.png": {
-                                "src": "https://resources.usersnap.com/company/6b66d72d-7fa7-4d1c-b824-6a41e1ab6e17/widget_config/feedback_v3_33d4ea0a-910f-40a6-a28f-f3d8fa85bdf3.png?etag=30705d4e8ea2b97c7d290ff40550a272",
-                                "resourceType": "IMAGE"
-                              },
-                              "thankyou_v2.png": {
-                                "src": "https://resources.usersnap.com/company/6b66d72d-7fa7-4d1c-b824-6a41e1ab6e17/widget_config/thankyou_v2_780312df-58d3-47b7-9277-e750e5d48643.png?etag=e42179fed6171d0d01eac2affb385782",
-                                "resourceType": "IMAGE"
-                              },
-                              "feedback_icon.svg": {
-                                "src": "https://resources.usersnap.com/company/6b66d72d-7fa7-4d1c-b824-6a41e1ab6e17/widget_config/feedback_icon_9e023cc7-36c0-4f7e-83dd-3611e640a380.svg?etag=321aabfd58244a1fe87018b014d842d7",
-                                "resourceType": "IMAGE"
-                              },
-                              "smiley_chat.svg": {
-                                  "src": "https://usersnap.com/blog/wp-content/uploads/2019/11/smily_chat.svg",
-                                  "resourceType": "IMAGE"
-                              },
+                            }
                         }
                     },
                     "widget": {
@@ -79,73 +45,27 @@
                                     "fields": [
                                     {
                                         // CHANGE - title on the header image
-                                        "title": null,
+                                        "title": "Feedback",
                                         "@resource": "logo_header.png",
-                                        
                                         "component": "HeaderImageDisplay",
                                         // do not change. this has subscription pricing impacts
-                                        //"poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
+                                        "poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
                                         "showGradientOverlay": false,
-                                    },
-                                    {
-                                        "id": "button-field-feedback",
-                                        "icon": {
-                                            "@resource": "feedback_icon.svg",
-                                            /*"@template": {
-                                                "id": "bubblesIcon"
-                                            }*/
-                                        },
-                                        // CHANGE - button for getting feedback via Usersnap
-                                        /*"text": "Give us feedback and rate your experience.",*/
-                                        "text": {
-                                            "en":"Give us feedback and rate your experience.",
-                                        },
-                                        "title": "Feedback",
-                                        "styles": {
-                                            "container": {
-                                                "color": "#3a21ce",
-                                                "background": "#f4f4f7",
-                                                "border-style": "none",
-                                                //"borderRadius": "0px 0px 0 0",
-                                            }
-                                        },
-                                        "allowHTML": true,
-                                        "onClick": [
-                                        {
-                                            "action": "updateInitialValue",
-                                            "options": {
-                                            "value": "feedback",
-                                            "fieldId": "category"
-                                            }
-                                        },
-                                        {
-                                            "action": "updateActivePage",
-                                            "options": {
-                                            "pageId": "feedback-page"
-                                            }
-                                        }
-                                        ],
-                                        "component": "ButtonField",
-                                        "multiline": true
                                     },
                                     {
                                         "id": "button-field-support",
                                         "icon": {
-                                            /*"@template": {
-                                                "supportIcon",
-                                            }*/
-                                            "@resource": {
-                                                "id": "smiley_chat.svg",
-                                            },
+                                        "@template": {
+                                            "id": "supportIcon"
+                                        }
                                         },
                                         // CHANGE - can be used to channel the communication to your chat tool
-                                        "text": "Get in touch with our lovely customer success team.",
-                                        "title": "Live chat",
+                                        "text": "Get in touch with our lovely support team.",
+                                        "title": "Support",
                                         "styles": {
                                         "container": {
                                             "color": "#3a21ce",
-                                            "background": "#f4f4f7",
-                                            "height": "20px"
+                                            "background": "#e9effe"
                                         }
                                         },
                                         "onClick": [
@@ -164,50 +84,40 @@
                                         "multiline": true
                                     },
                                     {
-                                        "id": "button-field-demo",
+                                        "id": "button-field-feedback",
                                         "icon": {
                                         "@template": {
                                             "id": "feedbackIcon"
                                         }
                                         },
-                                        // CHANGE - can be used to channel the communication to your chat tool
-                                        "text": "Learn more about Usersnap",
-                                        "title": "Have a demo with a product expert",
+                                        // CHANGE - button for getting feedback via Usersnap
+                                        /*"text": "Give us feedback and rate your experience.",*/
+                                        "text": "Are you looking for a solution for this use case?",
+                                        "title": "Feedback",
                                         "styles": {
                                         "container": {
                                             "color": "#3a21ce",
-                                            "background": "#f4f4f7"
+                                            "background": "#f3f7fe"
                                         }
                                         },
                                         "onClick": [
-                                            {
-                                                "action": "close"
-                                            },
-                                            {
-                                                // CHANGE - opens a new URL to your documentation - Example
-                                                "action": "openUrl",
-                                                "options": {
-                                                "url": "https://usersnap.com/lets-schedule-a-demo-call"
-                                                }
+                                        {
+                                            "action": "updateInitialValue",
+                                            "options": {
+                                            "value": "feedback",
+                                            "fieldId": "category"
                                             }
-                                            ],
+                                        },
+                                        {
+                                            "action": "updateActivePage",
+                                            "options": {
+                                            "pageId": "feedback-page"
+                                            }
+                                        }
+                                        ],
                                         "component": "ButtonField",
                                         "multiline": true
                                     },
-                                    /*
-                                    {
-                                        "id": "faq-textField",
-                                        
-                                        "text": {
-                                          "en": "<div style='background-color: #f4f4f7;display: flex;padding: 2rem;'><div style='flex: 1;'><img src='' style='margin-right: auto;margin-left: auto;display: block;'/></div><div style='flex: 3;font-size: 1em;'><p style='font-weight: 600;'>Rather talk to a product person?</p><div style='float: right;width: 50%;text-align: right;border-left: 1px solid black;'><b><a href='https://usersnap.com/lets-schedule-a-demo-call' style='text-decoration: none;color: inherit;'>Demo</a></b><br></div><div style='width: 50%;'><b><a href='#' style='text-decoration: none;color: inherit;'></a></b><br></div></div></div>"
-                                        },
-                                        "allowHTML": true,
-                                        "component": "TextDisplay",
-                                        "textStyle": {},
-                                        "titleStyle": {}
-                                    }
-                                    */
-                                    /*
                                     {
                                         "id": "button-field-bug",
                                         "icon": {
@@ -238,8 +148,7 @@
                                         ],
                                         "component": "ButtonField",
                                         "multiline": true
-                                    },
-                                    */    
+                                    },    
                                     /*
                                     {
                                         "id": "button-field-help",
@@ -288,11 +197,11 @@
                                 "fields": [
                                     {
                                     // CHANGE - title on the header image
-                                    "title": null,
+                                    "title": "Feedback",
                                     "@resource": "logo_header.png",
                                     "component": "HeaderImageDisplay",
                                     // do not change. this has subscription pricing impacts
-                                    //"poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
+                                    "poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
                                     "showGradientOverlay": false,
                                     }
                                 ],
@@ -307,15 +216,8 @@
                                     // CHANGE - main question
                                     "label": {
                                         "en": "Are you looking for a solution for this use case?",
-                                        },
-                                    "styles": {
-                                        "label": {
-                                            "color": "red",
-                                            "fontWeight": "bold",
-                                            "textTransform": "none"
-                                        },
-                                    },
-                                },
+                                        }
+                                    }
                                 ],
                                 "id": "feedback-form-fieldset"
                             },
@@ -328,7 +230,7 @@
                                             "en": "How was your experience so far?"
                                         },
                                         "multiline": true,
-                                        "required": true
+                                        "required": false
                                         }
                                     ],
                                     "id": "positiveRating-fieldset",
@@ -351,7 +253,7 @@
                                             "en": "We are sorry. What are you missing?"
                                         },
                                         "multiline": true,
-                                        "required": true
+                                        "required": false
                                         }
                                     ],
                                     "id": "negativeRating-fieldset",
@@ -371,10 +273,10 @@
                                         "@metric": "visitor",
                                         // CHANGE - label for email
                                         "label": {
-                                            "en": "Please, enter your email"
+                                            "en": "Email (optional)"
                                         },
                                         "memorizeKey": "usersnapTrackEmail",
-                                        "required": true
+                                        "required": false
                                         }
                                     ],
                                 "footer": {
@@ -393,7 +295,7 @@
                                         "isPrimary": false,
                                         // CHANGE - button for screenshot adding
                                         "label": {
-                                            "en": "Add screenshot (optional)"
+                                            "en": "Add screenshot"
                                         },
                                         "onClick": {
                                         "@breakpoint": {
@@ -468,10 +370,10 @@
                                 {
                                 "fields": [
                                     {
-                                    "@resource": "logo_header2.png",
+                                    "@resource": "logo_header.png",
                                     "component": "HeaderImageDisplay",
                                     // do not change - has subscription pricing issues
-                                    //"poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
+                                    "poweredByLink": "https://usersnap.com/cx?utm_source=cxbutton&utm_medium=poweredbylink&utm_campaign=customer",
                                     "showGradientOverlay": false,
                                     // CHANGE - thank you page
                                     "title": {
@@ -516,7 +418,7 @@
                     }
                 }  
                 , { merge: true });
- /*           
+            
                 // after 30 seconds
                 setInterval(function(){call_bubble()},30000);
 
@@ -529,11 +431,14 @@
 
                     if (rand == 2 && getCookie('bubble_fired') != 'yes') {
                         // only use this in case you want to show a bubble for triggering feedback
+
+                        // as an alternative you can open the widget directly
+                        
                         api.showBubble({
                             "isHidden": true,
                             // CHANGE - for the bubble
                             "text": {
-                                //"en": "Please give us some feedback to improve our website."
+                                /*"en": "Please give us some feedback to improve our website."*/
                             },
                             "title": {
                                 "en": "Are you looking for a solution for this use case?"
@@ -553,7 +458,7 @@
                         setCookie('bubble_fired','yes',30);
                     }   
                 }
- */
+
                 function setCookie(name, value, days) {
                     var date, expires;
                     if (days) {
@@ -588,8 +493,8 @@
             document.getElementsByTagName('head')[0].appendChild(script);
             
 
-/*
-            //Usersnap QA / Classic
+
+            //Usersnap Classic
             window.onUsersnapLoad = function(api) {
                 api.init({
                     //hide button for not having two buttons on the page.
@@ -598,18 +503,14 @@
                 //export api to later call it via the javascript code.
                 window._ClApi = api;
             };
-*/
-            /*
-            load Usersnap QA too
+
             var script = document.createElement('script');
             script.async = 1;
             
             // CHANGE - to your API key for Usersnap Classic in the URL - IMPORTANT
             script.src = '//api.usersnap.com/load/181c6e2e-9665-4ee7-88c8-4923a01824fc.js?onload=onUsersnapLoad';
             document.getElementsByTagName('head')[0].appendChild(script);
-            */
-    
-//  }, 2000);
-//}, {once: true});
+
+        </script>
             
-//</script>
+</script>        

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<!-- 
+
+Usersnap - Make feedback matter!
+
+Usage: https://usersnap.github.io/fullscreenform/?api=API_KEY&rating=[1-5]
+
+api: required. Get it from your projects settings
+rating: optional.
+
+-->
+  
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="referrer" content="no-referrer">
+ 
+  <link href="https://assets.website-files.com/5ad15d8c3265e9c49b438f4e/5ad77d23a1a548ddd9c64258_logo-favicon.png" rel="shortcut icon" type="image/x-icon">
+  <title>Usersnap</title>
+ 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <style>
+body{
+  background-color: #f8f8f9;
+}
+form {
+  margin-top: 1rem;
+}
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-bottom: 0.8rem;
+}
+.btn-primary {
+  background-color: #3921CE;
+  border-color: #3921CE;
+}
+.btn-primary:hover {
+  background-color: rgb(64, 37, 245);
+  border-color: rgb(64, 37, 245);
+}
+.fa-star:hover {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+#open-question {
+  margin-top: 4rem;
+}
+#container {
+  height: 100%;
+  display: flex;
+  direction: flex-start;
+  margin-top: 4rem;
+}
+#logo {
+  height: 48px;
+  z-index: 1;
+}
+#powered {
+  color: #3921CE;
+  font-size: 0.8rem;
+  float: right;
+  margin-top: 0.6rem;
+}
+  </style>
+
+
+
+</head>
+
+<body>
+  <div class="container">
+  </div>
+  <div id="container">
+      <div class="container">
+        
+        <a id="powered" href="https://usersnap.com" target="new">powered by Usersnap</a>
+        <div class="row justify-content-md-center">
+          <div class="col-lg-6">
+
+
+            <p id="magicbox" style="margin-top:200px;">
+              <button id="magicwand" href="#">Click here for the magic</button>
+              <p id="magicboxmessage"></p>
+            </p>
+        
+            <!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal" style="height:500px;">
+    <p><img id="logo" src="./usersnap-logo-blue.png" alt="Usersnap Logo"></p>
+    <p><b style="color:#3A21CE;">Please don't go yet!</b><br />
+       You just triggered an exit-intent micro-feedback (by Usersnap)<br /><br />
+       Do you want to learn more about this cool possibility to learn from your customers?<br />
+       <a href="#" id="modal-yes">Yes</a> | <a href="#" rel="modal:close" id="modal-no">No</a>
+       <br /><br />
+       <span id="hidden-email">
+         We'll send you more info<br />
+        <form id="hidden-form">
+          <input type="email" name="email" id="email" value="" placeholder="Enter your email ..." />
+          <br />
+          What else do you want to tell us?<br />
+          <input type="text" name="text" id="text" value="" placeholder="Love you ..." /><br />
+          <input type="submit" id="hidden-submit" value="Get it" />
+        </form>
+      </span>
+        
+    
+        
+        </p>
+    <!--<a href="#" rel="modal:close">Close</a>-->
+  </div>
+  
+  <!-- Link to open the modal -->
+      <p><a id="modalopen" href="#ex1" rel="modal:open">Open Modal</a></p>
+
+    </div>
+  </div>
+    
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <script>
+$().ready(() => {
+  let urlParams = new URLSearchParams(location.search);
+  if ( urlParams.has('api')) {
+    api = urlParams.get('api');
+  }
+
+
+        $( '#magicwand' ).click(function() {
+          $( '#magicboxmessage').html( 'I am sooo sorry. No magic. hihihi' );
+        });
+        $( '#modalopen' ).hide();
+        $( '#hidden-email' ).hide();
+        $( '#hidden-form' ).hide();
+        $( '#modal-yes' ).click( function() {
+          $( '#hidden-email' ).show();
+        $( '#hidden-form' ).show(); 
+        });
+
+        setTimeout(() => {
+          $(document).on("mouseout", evt => {
+              if(evt.toElement === null && evt.relatedTarget === null) {
+                  $(evt.currentTarget).off("mouseout");
+                  // An intent to exit has happened
+                  $( '#modalopen' ).click();
+              }
+          });
+      }, 100);
+
+      $('#hidden-submit').click(() => {
+        $('#hidden-form').find('input[type=submit]').prop('disabled','disabled');
+        let email = $('#email').val();
+        
+        let message = $('#text').val() + ' customer loves exit intent microfeedback :)';
+  let api = '3e255ded-a5c1-48c8-b7da-1bf56a1a0615';
+  if (message) {
+    fetch('https://widget.usersnap.com/api/widget/xhrrpc', {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify({
+        type: 'rpc',
+        method: 'submit_feedback',
+        params: {
+          api_key: api,
+          rating: 10,
+          comment: message,
+          visitor: email
+        }
+      })
+    }).then(
+      (response) => response.json()
+    ).then((jsonResponse) => {
+      if (jsonResponse.status === true) {
+        $( '#modalopen' ).hide();
+        $( '#modal-no' ).click();
+        $( '#hidden-email' ).hide();
+        $( '#hidden-form' ).hide();
+        $( '#magicboxmessage').html( '<span style="color:#3A21CE;">Ohh, it is magic!!! Make feedback matter.</span>' );
+        
+      }
+    }).catch((error) => {
+      console.error('Error:', error);
+      //alert(config.errorMessage + error.message);
+    });
+  } else {
+    //  alert(config.addFeedbackMessage);
+  }
+});
+});
+      </script>
+
+</body>
+
+</html>

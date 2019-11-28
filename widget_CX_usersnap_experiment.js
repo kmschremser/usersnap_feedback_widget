@@ -306,7 +306,7 @@
                                     "@metric": "rating",
                                     // CHANGE - main question
                                     "label": {
-                                        "en": "Are you looking for a solution for this use case?",
+                                        "en": "<h1>Are you looking for a solution for this use case?</h1>",
                                         },
                                     "styles": {
                                         "label": {
@@ -315,6 +315,7 @@
                                             "textTransform": "none"
                                         },
                                     },
+                                    "allowHTML": true,
                                 },
                                 ],
                                 "id": "feedback-form-fieldset"
@@ -343,7 +344,7 @@
                                     }
                                 },
                                 {
-                                    "fields": [
+                                "fields": [
                                         {
                                         "@metric": "comment",
                                         // CHANGE - question in case of negative rating
@@ -366,7 +367,7 @@
                                     }
                                 },
                                 {
-                                    "fields": [
+                                "fields": [
                                         {
                                         "@metric": "visitor",
                                         // CHANGE - label for email
@@ -377,6 +378,7 @@
                                         "required": true
                                         }
                                     ],
+                                
                                 "footer": {
                                     "buttons": [
                                     // CHANGE - remove to deactivate screenshot feature
@@ -442,7 +444,26 @@
                                     }
                                 ],
                                 "id": "feedback-annotate-fieldset"
-                                }
+                                },
+                                {
+                                "fields": [
+                                        {
+                                        // CHANGE - main question
+                                        "label": {
+                                            "en": "<h1>Are you lookixxxxxxxng for a solution for this use case?</h1>",
+                                            },
+                                        "styles": {
+                                            "label": {  
+                                                "color": "red",
+                                                "fontWeight": "bold",
+                                                "textTransform": "none"
+                                            },
+                                        },
+                                        "allowHTML": true,
+                                    },
+                                    ],
+                                    "id": "extra_content"
+                                },
                             ],
                             "id": "feedback-page",
                             "onSubmit": {
