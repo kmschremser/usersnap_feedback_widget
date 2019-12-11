@@ -462,7 +462,7 @@
             script.async = 1;
             
             // CHANGE - to your API key for Usersnap CX in the URL - IMPORTANT
-            script.src = '//widget.usersnap.com/load/c485731f-691d-4243-9cc1-a3774b65b227?onload=onUsersnapCXLoad&isdev=true';
+            script.src = '//widget.usersnap.com/load/f73dda22-6208-4625-b2da-493c5d2c3893?onload=onUsersnapCXLoad&isdev=true';
             document.getElementsByTagName('head')[0].appendChild(script);
             
 
@@ -482,7 +482,7 @@
             script.async = 1;
             
             // CHANGE - to your API key for Usersnap CX in the URL - IMPORTANT
-            script.src = '//api.usersnap.com/load/04529a5b-41c0-4985-b799-ec54ef2a35da.js?onload=onUsersnapLoad';
+            script.src = '//api.usersnap.com/load/19f084f0-f993-4cf8-9c49-5457e53c5bc8.js?onload=onUsersnapLoad';
             document.getElementsByTagName('head')[0].appendChild(script);
             
             
